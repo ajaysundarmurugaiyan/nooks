@@ -177,14 +177,16 @@ const OPImages = () => {
             {uploadedImages.length > 0 ? (
               uploadedImages.map((image) => (
                 <div key={image.id} className="flex flex-col items-center mb-4 border p-2">
-                  <div className="font-semibold mb-1">{image.imageText}</div>
+                  {/* <div className="font-semibold mb-1">{image.imageText}</div> */}
                   <img src={image.imageUrl} alt={image.imageText} className="w-32 h-32 object-cover" />
+                  <div>
                   <button
                     onClick={() => handleDelete(image.id)}
                     className=" bg-red-600 text-white p-2 rounded-lg mt-2"
                   >
                     Delete
                   </button>
+                  </div>
                 </div>
               ))
             ) : (

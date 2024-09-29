@@ -143,17 +143,19 @@ const OfficeProduct = () => {
 
         <div className="mt-10">
           <h2 className="text-xl font-bold mb-4">Uploaded Images:</h2>
-          <div className='grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1'>
+          <div className='grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4'>
             {uploadedImages.length > 0 ? (
               uploadedImages.map((image, index) => (
-                <div key={image.id} className="flex items-center mb-4 space-x-3 border p-2 w-fit">
+                <div key={image.id} className="flex flex-col items-center mb-4 border p-2">
                   <div className='flex flex-col items-center'>
-                    <div className="font-semibold mb-1">{image.categoryName}</div>
+                    {/* <div className="font-semibold mb-1">{image.categoryName}</div> */}
                     <img src={image.imageUrl} alt={`Uploaded ${index}`} className="w-32 h-32 object-cover" />
                   </div>
+                  <div className='md:flex flex-row md:ml-3 space-x-5 space-y-2 justify-center'>
                   <button
                     onClick={() => handleDeleteImage(image.id)}
                     className="bg-red-600 text-white p-2 rounded-lg mt-2">Delete</button>
+                    </div>
                 </div>
               ))
             ) : (
@@ -164,7 +166,7 @@ const OfficeProduct = () => {
 
         <div className='mt-10 flex justify-center md:justify-start space-x-3'>
           <a href="/admin"><button className='px-5 py-1 border rounded-lg bg-blue-500'>Previous</button></a>
-          <a href="/op-images"><button className='px-5 py-1 border rounded-lg bg-blue-500'>Next</button></a>
+          <a href="/admin"><button className='px-5 py-1 border rounded-lg bg-blue-500'>Submit</button></a>
         </div>
       </div>
     </div>

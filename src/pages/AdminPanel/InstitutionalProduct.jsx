@@ -163,17 +163,17 @@ const InstitutionalProduct = () => {
 
         <div className="mt-10">
           <h2 className="text-xl font-bold mb-4">Uploaded Images:</h2>
-          <div className='grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1'>
+          <div className='grid sm:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-4'>
             {uploadedImages.length > 0 ? (
               uploadedImages.map((image, index) => (
-                <div key={image.id} className="flex md:flex-row flex-col items-center mb-4 border p-2 w-fit">
+                <div key={image.id} className="flex flex-col items-center mb-4 border p-2">
                   <div className='flex md:flex-col items-center '>
                     <div className='items-center text-center'>
                       <div className="font-semibold mb-1">{image.categoryName}</div>
-                      <img src={image.imageUrl} alt={`Uploaded ${index}`} className="object-cover" />
+                      <img src={image.imageUrl} alt={`Uploaded ${index}`} className="object-cover w-32 h-32" />
                     </div>
                   </div>
-                  <div className='md:flex flex-col md:ml-3 md:space-x-0 space-y-2 justify-center'>
+                  <div className='md:flex flex-row md:ml-3 space-x-5 space-y-2 justify-center'>
                     <button
                       onClick={() => handleEditImage(image)} // Open edit mode
                       className="bg-yellow-500 text-white p-2 rounded-lg mt-2">Edit</button>

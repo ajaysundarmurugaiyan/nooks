@@ -164,22 +164,22 @@ const InstitutionalCategory = () => {
 
           {/* Display uploaded images and edit/delete options */}
           <div className="items-center">
-          <div className="grid items-center md:grid-cols-2 gap-y-5">
+          <div className="grid items-center md:grid-cols-2 lg:grid-cols-3 gap-4">
             {products.map((product) => (
               <div>
                 <div
                   key={product.id}
-                  className="md:flex gap-x-2 w-fit border sm:p-3 p-2 rounded-lg shadow-sm"
+                  className="flex flex-col items-center mb-4 border p-2"
                 >
                   <div className="flex flex-col justify-center items-center">
                     <p className="font-bold">{product.name}</p>
                     <img
                       src={product.imageUrl}
                       alt={product.name}
-                      className="w-full h-auto object-cover mt-2"
+                      className="object-cover w-32 h-32"
                     />
                   </div>
-                  <div className=" md:flex flex-col space-x-2 md:space-x-0 space-y-2 justify-center">
+                  <div className="md:flex flex-row md:ml-3 space-x-5 my-3 justify-center">
                     <button
                       onClick={() => handleEdit(product)}
                       className="bg-yellow-500 text-white text-sm px-3 py-1 rounded-lg hover:bg-yellow-600"
