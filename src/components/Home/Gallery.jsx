@@ -23,7 +23,7 @@ const Gallery = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-            <a href="/Class-Room"
+            <a href="/institutional"
                 className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
                 <img src="https://img.freepik.com/free-photo/international-day-education-dark-style_23-2151013384.jpg?t=st=1719468459~exp=1719472059~hmac=5d9c0d2f3e887683e4aeb867fcf0952099b1cc8df1eab4524a5f8f887b1c75be&w=740" loading="lazy" alt="Photo by Minh Pham" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
@@ -33,9 +33,9 @@ const Gallery = () => {
 
                 <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg underline">Classroom Furnitures</span>
             </a>
-            <a href="/Hostel"
+            <a href="/institutional"
                 className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
-                <img src="https://img.freepik.com/free-vector/realistic-dark-supermarket-with-empty-shelves_107791-18624.jpg?t=st=1719469102~exp=1719472702~hmac=da8610d2c2099e6b592654d84251a126d1c383de36f66413c99de04b44141ec2&w=1380" loading="lazy" alt="Photo by Martin Sanchez" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+                <img src="https://www.popcornfurniture.com/wp-content/uploads/2020/01/BED.jpg" loading="lazy" alt="Photo by Martin Sanchez" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
                 <div
                     className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50">
@@ -43,9 +43,9 @@ const Gallery = () => {
 
                 <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg underline">Hostel Furniture</span>
             </a>
-            <a href="/Cafeteria-&-Dining"
+            <a href="/institutional"
                 className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
-                <img src="https://firebasestorage.googleapis.com/v0/b/nooks-65355.appspot.com/o/institutional%2FC%26D.png?alt=media&token=09a0c6f5-17dd-4249-89f0-75b3b652e985" loading="lazy" alt="Photo by Magicle" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
+                <img src="https://t4.ftcdn.net/jpg/02/94/26/33/360_F_294263329_1IgvqNgDbhmQNgDxkhlW433uOFuIDar4.jpg" alt="Photo by Magicle" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
                 <div
                     className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50">
@@ -54,7 +54,7 @@ const Gallery = () => {
                 <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg underline">Cafeteria & Dining </span>
             </a>
            
-            <a href="/Office"
+            <a href="/office"
                 className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
                 <img src="https://img.freepik.com/free-photo/office-chair-still-life_23-2151149124.jpg?t=st=1719469167~exp=1719472767~hmac=e707ee2abb5b748cfae42b418a08fd1d709872b68bc37a7249800b88bd3fbee7&w=900" loading="lazy" alt="Photo by Lorenzo Herrera" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 

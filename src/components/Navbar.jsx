@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MdMenu, MdClose } from "react-icons/md";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 const NavBar = () => {
   const [is_menu_open, set_is_menu_open] = useState(false);
@@ -11,10 +13,18 @@ const NavBar = () => {
   const [loading, set_loading] = useState(true);
   const [error, set_error] = useState(null);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [openProduct, setOpenProduct] = useState();
+
+  const dropdownRef = useRef(null); // Reference to detect outside clicks
 
   // Toggle the dropdown visibility
   const toggleDropdown = (productId) => {
     setOpenDropdown(openDropdown === productId ? null : productId);
+  };
+
+  const productDropDown = () => {
+    setOpenProduct(!openProduct);
+    setOpenProduct(false);
   };
 
   const toggle_menu = () => {
@@ -40,7 +50,6 @@ const NavBar = () => {
             const categories_snapshot = await getDocs(
               collection(db, `institutionalProducts/${doc.id}/images`)
             );
-            // console.log(categories_snapshot)
             product_data.categories = categories_snapshot.docs.map(
               (cat_doc) => ({
                 id: cat_doc.id,
@@ -81,6 +90,27 @@ const NavBar = () => {
 
     fetch_products();
   }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        set_is_products_open(false); // Close products dropdown when clicking outside
+      }
+    };
+
+    // Add event listener when the dropdown is open
+    if (is_products_open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [is_products_open]);
 
   if (loading) {
     return (
@@ -141,13 +171,25 @@ const NavBar = () => {
               </div>
 
               {/* Products Dropdown */}
-              <div className="relative inline-block text-left">
-                <span
-                  onClick={toggle_products}
-                  className="menu-link block mt-4 lg:inline-block lg:mt-0 lg:ml-14 text-gray-600 hover:text-gray-800 font-bold text-md md:text-lg xl:text-xl cursor-pointer"
-                >
-                  Products
-                </span>
+              <div
+                className="relative inline-block text-left"
+                ref={dropdownRef}
+              >
+                <div className="flex items-center justify-center">
+                  <div
+                    onClick={toggle_products}
+                    className="menu-link block mt-4 lg:inline-block lg:mt-0 lg:ml-14 text-gray-600 hover:text-gray-800 font-bold text-md md:text-lg xl:text-xl cursor-pointer"
+                  >
+                    Products
+                  </div>
+                  <div onClick={toggle_products} className="text-gray-600">
+                    {is_products_open ? (
+                      <MdKeyboardArrowDown className="md:text-2xl text-lg mt-4 lg:mt-0.5" />
+                    ) : (
+                      <MdKeyboardArrowRight className="md:text-2xl text-lg mt-4 lg:mt-0.5" />
+                    )}
+                  </div>
+                </div>
                 {is_products_open && (
                   <div className="absolute -right-60 sm:-right-96 lg:-right-20  md:-right-60 mt-10 bg-white text-black shadow-lg z-20 text-xs sm:text-sm md:text-lg w-screen md:w-[70vw] p-8">
                     <div className="grid grid-cols-1 gap-4">
@@ -163,8 +205,10 @@ const NavBar = () => {
                                     onClick={() => toggleDropdown(product.id)}
                                     className="font-bold text-left w-full"
                                   >
-                                    <a href={`/institutional-products/${product.id}`}>
-                                      <span className="font-bold">
+                                    <a
+                                      href={`/institutional-products/${product.id}`}
+                                    >
+                                      <span className="font-bold text-sm">
                                         {product.name}
                                       </span>
                                     </a>
@@ -174,7 +218,7 @@ const NavBar = () => {
                                   </button>
                                   {openDropdown === product.id &&
                                     product.categories.length > 0 && (
-                                      <ul className="list-disc text-xs text-gray-500">
+                                      <ul className="list-disc space-y-1 text-xs text-gray-500">
                                         {product.categories.map((category) => (
                                           <div key={category.id}>
                                             <a
@@ -190,13 +234,15 @@ const NavBar = () => {
 
                                 {/* Default view for medium and larger screens */}
                                 <div className="hidden md:block">
-                                  <a href={`/institutional-products/${product.id}`}>
-                                    <span className="font-bold">
+                                  <a
+                                    href={`/institutional-products/${product.id}`}
+                                  >
+                                    <span className="font-bold text-xl">
                                       {product.name}
                                     </span>
                                   </a>
                                   {product.categories.length > 0 && (
-                                    <ul className="list-disc text-xs text-gray-500">
+                                    <ul className="list-disc text-sm text-gray-500">
                                       {product.categories.map((category) => (
                                         <div key={category.id}>
                                           <a
@@ -218,22 +264,15 @@ const NavBar = () => {
                       </div>
 
                       {/* Office Products */}
-                      <div className="product-section grid grid-cols-3">
+                      <div className="product-section grid lg:grid-cols-3 md:grid-cols-2 grid-rows-1">
                         {office_products.length > 0 ? (
                           office_products.map((product) => (
                             <div key={product.id} className="mb-4">
                               <a href={`/office-products/${product.id}`}>
-                                <span className="font-bold">
+                                <span className="font-bold text-sm md:text-xl">
                                   {product.name}
                                 </span>
                               </a>
-                              {/* {product.categories.length > 0 && (
-                                <ul className="ml-4 list-disc text-gray-500">
-                                  {product.categories.map((category) => (
-                                    <li key={category.id}>{category.categoryName}</li>
-                                  ))}
-                                </ul>
-                              )} */}
                             </div>
                           ))
                         ) : (
