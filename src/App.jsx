@@ -31,6 +31,12 @@ import ProductImagesPage from "./pages/ProductImagesPage";
 import CategoryImages from "./pages/CategoryImages";
 import OfficeProductDetails from "./pages/OfficeProductDetails";
 
+
+const NotFound = () => {
+  return <h2>404 - Page Not Found</h2>;
+};
+
+
 const App = () => {
   return (
     <Router>
@@ -42,6 +48,10 @@ const App = () => {
         <Route path="/office-products/:name" element={<OfficeProductDetails />} />
         <Route path="/category-images/:name/:id" element={<CategoryImages />} />
         <Route path="/products/details/:name" element={<ProductDetails />} />
+
+
+        <Route path="*" element={<NotFound />} />
+
         
         {/* Corrected the usage of element */}
         <Route path="/institutional/:productId" element={<ProductImagesPage />} />
