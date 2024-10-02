@@ -237,12 +237,12 @@ const NavBar = () => {
                                   <a
                                     href={`/institutional-products/${product.id}`}
                                   >
-                                    <span className="font-bold text-xl">
+                                    <span className="font-bold text-2xl">
                                       {product.name}
                                     </span>
                                   </a>
                                   {product.categories.length > 0 && (
-                                    <ul className="list-disc text-sm text-gray-500">
+                                    <ul className="list-disc text-md text-gray-500">
                                       {product.categories.map((category) => (
                                         <div key={category.id}>
                                           <a

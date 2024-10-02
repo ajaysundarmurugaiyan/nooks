@@ -23,7 +23,7 @@ const Gallery = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
-            <a href="/institutional"
+            <a href="/institutional-products/aUEqZwVPPzkOBhQwVt6X"
                 className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80">
                 <img src="https://img.freepik.com/free-photo/international-day-education-dark-style_23-2151013384.jpg?t=st=1719468459~exp=1719472059~hmac=5d9c0d2f3e887683e4aeb867fcf0952099b1cc8df1eab4524a5f8f887b1c75be&w=740" loading="lazy" alt="Photo by Minh Pham" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
@@ -33,7 +33,7 @@ const Gallery = () => {
 
                 <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg underline">Classroom Furnitures</span>
             </a>
-            <a href="/institutional"
+            <a href="/institutional-products/BnychZ587yTyDDXML5Fv"
                 className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
                 <img src="https://www.popcornfurniture.com/wp-content/uploads/2020/01/BED.jpg" loading="lazy" alt="Photo by Martin Sanchez" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
@@ -43,7 +43,7 @@ const Gallery = () => {
 
                 <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg underline">Hostel Furniture</span>
             </a>
-            <a href="/institutional"
+            <a href="/institutional-products/dIq5eTPF7ENSnrraXXCh"
                 className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80">
                 <img src="https://t4.ftcdn.net/jpg/02/94/26/33/360_F_294263329_1IgvqNgDbhmQNgDxkhlW433uOFuIDar4.jpg" alt="Photo by Magicle" className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110" />
 
