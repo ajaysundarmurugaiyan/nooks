@@ -144,7 +144,7 @@ const App = () => {
         <Route path="/institutional-category" element={<InstitutionalCategory/>}/>
         <Route path="/office-category" element={<OfficeCategory/>}/>
         <Route path="/institutional-product" element={<InstitutionalProduct/>}/>
-        <Route path="/office-product" element={<OfficeProduct/>}/>
+        <Route path="/office-product" element={<OfficeProduct/>}/>f
         <Route path="/ip-images" element={<IPImages/>}/>
         <Route path="/op-images" element={<OPImages/>}/>
 
